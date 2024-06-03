@@ -1,0 +1,14 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("postgresql://chessdb_owner:icaWXO9nk3Rb@ep-solitary-sunset-a1wvsby2.ap-southeast-1.aws.neon.tech/chessdb?sslmode=require")
+}
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+generator client {
+  provider = "prisma-client-js"
+}
